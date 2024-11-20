@@ -1,6 +1,6 @@
 baseURL: https://example.com/
 languageCode: en-us
-title: Hugo-HT
+title: GongChao
 theme: hugo-ht
 footnotereturnlinkcontents: ↩
 enableRobotsTXT: yes
@@ -33,14 +33,12 @@ menu:
       url: /cn/posts/
       weight: 4
 params:
-  ContentSource: https://raw.githubusercontent.com/USERNAME/REPONAME/main/content/
-  GithubEdit: https://github.com/USERNAME/REPONAME/edit/main/content/
-  GithubRepo: https://github.com//GongChao-PKU/chaogong
+  GithubRepo: https://github.com//GongChao-PKU/
   MathJaxCDN: //cdnjs.cloudflare.com/ajax/libs
   MathJaxVersion: 2.7.5
   blogDirName: posts
   copyright: '&copy;'
-  copyrightYear: 2020-2021
+  copyrightYear: 2024-2024
   defaultLang: en
   description: Peronal website of Your Name
   favicon: media/hugo-logo.png
@@ -65,8 +63,8 @@ params:
       cn: 本站驱动
       en: Made with
     sourceCode:
-      cn: 内容存于
-      en: Content in
+      cn: 订阅
+      en: Subscribe
     subscribe:
       cn: 订阅
       en: Subscribe
