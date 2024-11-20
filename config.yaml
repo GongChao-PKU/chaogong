@@ -1,5 +1,11 @@
 baseURL: https://chaogong.netlify.app/
 languageCode: en-us
+ignoreFiles:
+  - \.Rmd$
+  - \.Rmarkdown$
+  - _cache$
+  - \.knit\.md$
+  - \.utf8\.md$
 title: GongChao
 theme: hugo-ht
 footnotereturnlinkcontents: ↩
@@ -17,7 +23,7 @@ menu:
       url: /cn/posts/
       weight: 2
     - name: English
-      url: /
+      url: /en/posts/
       weight: 3
   en:
     - name: Home
@@ -33,7 +39,7 @@ menu:
       url: /cn/posts/
       weight: 4
 params:
-  GithubRepo: https://github.com//GongChao-PKU/
+  GithubRepo: https://github.com/GongChao-PKU/
   MathJaxCDN: //cdnjs.cloudflare.com/ajax/libs
   MathJaxVersion: 2.7.5
   blogDirName: posts
