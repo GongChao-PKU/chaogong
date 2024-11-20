@@ -1,6 +1,5 @@
 ---
 title: 巩超简历
-toc: true
 type: list-single
 ---
 
