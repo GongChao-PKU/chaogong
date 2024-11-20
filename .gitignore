@@ -2,9 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-.Rmd
-.Rmarkdown
-_cache
 .DS_Store
 Thumbs.db
 .hugo_build.lock

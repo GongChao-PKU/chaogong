@@ -23,7 +23,7 @@ menu:
       url: /cn/posts/
       weight: 2
     - name: English
-      url: /en/posts/
+      url: /
       weight: 3
   en:
     - name: Home
@@ -39,8 +39,9 @@ menu:
       url: /cn/posts/
       weight: 4
 params:
-  GithubRepo: https://github.com/GongChao-PKU/
-  MathJaxCDN: //cdnjs.cloudflare.com/ajax/libs
+  GithubRepo: https://raw.githubusercontent.com/USERNAME/REPONAME/main/content/
+  GithubEdit: https://github.com/USERNAME/REPONAME/edit/main/content/
+  GithubRepo: https://github.com/USERNAME/REPONAME
   MathJaxVersion: 2.7.5
   blogDirName: posts
   copyright: '&copy;'
@@ -69,8 +70,8 @@ params:
       cn: 本站驱动
       en: Made with
     sourceCode:
-      cn: 订阅
-      en: Subscribe
+      cn: 内容存于
+      en: Content in
     subscribe:
       cn: 订阅
       en: Subscribe
