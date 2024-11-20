@@ -24,7 +24,7 @@ menu:
       weight: 2
     - name: English
       url: /
-      weight: 3
+      weight: 4
   en:
     - name: Home
       url: /
@@ -32,7 +32,7 @@ menu:
     - name: About
       url: /en/about/
       weight: 2
-    - name: Posts
+    - name: Research
       url: /en/posts/
       weight: 3
     - name: 中文
