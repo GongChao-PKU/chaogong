@@ -1,4 +1,4 @@
-baseURL: https://chaogong.netlify.app/
+baseURL: https://example.com/
 languageCode: en-us
 ignoreFiles:
   - \.Rmd$
