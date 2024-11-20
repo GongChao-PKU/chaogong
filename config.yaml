@@ -32,7 +32,7 @@ menu:
     - name: About
       url: /en/about/
       weight: 2
-    - name: Research
+    - name: Posts
       url: /en/posts/
       weight: 3
     - name: 中文
