@@ -47,7 +47,7 @@ params:
   copyrightYear: 2024-2024
   defaultLang: en
   description: Peronal website of Chao Gong
-  favicon: media/me.jpg
+  favicon: https://simpleicons.org/icons/matrix.svg
   homeText: You just need a Hugo blog from scratch
   lang:
     Sitelastupdate:
@@ -77,7 +77,7 @@ params:
   logo:
     alt: Hugo-ht
     height: 50
-    url: media/me.jpg
+    url: https://simpleicons.org/icons/matrix.svg
     width: 50
 markup:
   defaultMarkdownHandler: goldmark
