@@ -1,6 +1,6 @@
 ---
 title: 在残差图中隐藏信息
-author: ''
+author: 巩超
 date: '2024-11-21'
 slug: hide-message-in-residentials
 categories: []
