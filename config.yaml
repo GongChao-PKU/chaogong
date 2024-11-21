@@ -7,7 +7,7 @@ ignoreFiles:
   - \.knit\.md$
   - \.utf8\.md$
 title: GongChao
-theme: hugo-ht
+theme: GongChao
 footnotereturnlinkcontents: ↩
 enableRobotsTXT: yes
 permalinks:
@@ -77,7 +77,7 @@ params:
   logo:
     alt: Hugo-ht
     height: 50
-    url: media/hugo-logo.png
+    url: media/me.jpg
     width: 50
 markup:
   defaultMarkdownHandler: goldmark
