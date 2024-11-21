@@ -39,8 +39,8 @@ menu:
       url: /cn/posts/
       weight: 4
 params:
-  GithubRepo: https://raw.githubusercontent.com/GongChao-PKU/
-  GithubEdit: https://github.com/GongChao-PKU/
+  GithubRepo: https://github.com/GongChao-PKU/chaogong/
+  GithubEdit: https://github.com/GongChao-PKU/chaogong/tree/main/content/
   MathJaxVersion: 2.7.5
   blogDirName: posts
   copyright: '&copy;'
