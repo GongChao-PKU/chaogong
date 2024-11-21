@@ -1,7 +1,9 @@
 ---
 title: Curriculum Vitae
+date: '2024-11-21'
 type: list-single
 ---
+
 
 ## Chao Gong
 School of Public Health\
@@ -32,5 +34,3 @@ Epidemiology & Biostatistics; Health emergency
 ### Publications & talks
 #### Journal articles
 1. Chen, Q.#, Liu, Q.#,Gong, C.# et al. Strategies to inTerrupt RAbies Transmission for the Elimination Goal by 2030 In China (STRATEGIC): a modelling study. *BMC Med*,2023,21:100.
-
-
