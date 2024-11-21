@@ -1,4 +1,4 @@
-baseURL: https://example.com/
+baseURL: https://chaogong.netlify.app/
 languageCode: en-us
 ignoreFiles:
   - \.Rmd$
@@ -46,7 +46,7 @@ params:
   copyright: '&copy;'
   copyrightYear: 2024-2024
   defaultLang: en
-  description: Peronal website of Your Name
+  description: Peronal website of Chao Gong
   favicon: media/hugo-logo.png
   homeText: You just need a Hugo blog from scratch
   lang:
