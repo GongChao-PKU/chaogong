@@ -1,7 +1,7 @@
 ---
 title: 'R软件使用介绍'
 author: 巩超
-date: '2024-11-21'
+date: '2023-11-23'
 slug: []
 categories: []
 tags: []
@@ -11,4 +11,4 @@ toc: no
 
 幻灯片格式：
 
-[HTML](/slides/Rslides1.html)
+[HTML](/slides/R_introduction/Rslides1.html)
