@@ -11,7 +11,7 @@ Peking university\
 Haidian District, Beijing 100191 China
 
 Email: gc2016@pku.edu.cn\
-URL: https://chaogong.netlify.app/
+URL: [https://chaogong.netlify.app](https://chaogong.netlify.app/)
 
 Born: Shandong, China\
 Nationality: Chinese

@@ -2,10 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>中文博客 on GongChao</title>
-    <link>https://example.com/cn/posts/</link>
+    <link>https://chaogong.netlify.app/cn/posts/</link>
     <description>Recent content in 中文博客 on GongChao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://example.com/cn/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://chaogong.netlify.app/cn/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>学术主页更新</title>
+      <link>https://chaogong.netlify.app/cn/2024/11/21/website/</link>
+      <pubDate>Thu, 21 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://chaogong.netlify.app/cn/2024/11/21/website/</guid>
+      <description>今天踩了很多坑，终于将学术主页搭建好了，感谢blogdown开发及应用的各位前辈</description>
+    </item>
   </channel>
 </rss>

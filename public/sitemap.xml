@@ -2,22 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://chaogong.netlify.app/en/about/</loc>
+    <lastmod>2024-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/en/about/</loc>
+    <loc>https://chaogong.netlify.app/</loc>
+    <lastmod>2024-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/en/</loc>
+    <loc>https://chaogong.netlify.app/cn/posts/</loc>
+    <lastmod>2024-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/en/posts/</loc>
+    <loc>https://chaogong.netlify.app/cn/2024/11/21/website/</loc>
+    <lastmod>2024-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/</loc>
+    <loc>https://chaogong.netlify.app/cn/about/</loc>
+    <lastmod>2024-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://chaogong.netlify.app/en/</loc>
+    <lastmod>2017-01-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/cn/posts/</loc>
+    <loc>https://chaogong.netlify.app/cn/</loc>
+    <lastmod>2017-01-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/cn/</loc>
+    <loc>https://chaogong.netlify.app/categories/</loc>
   </url><url>
-    <loc>https://example.com/cn/about/</loc>
+    <loc>https://chaogong.netlify.app/en/posts/</loc>
+  </url><url>
+    <loc>https://chaogong.netlify.app/tags/</loc>
   </url>
 </urlset>

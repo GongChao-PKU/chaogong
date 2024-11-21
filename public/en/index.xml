@@ -2,10 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>English page on GongChao</title>
-    <link>https://example.com/en/</link>
+    <link>https://chaogong.netlify.app/en/</link>
     <description>Recent content in English page on GongChao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://example.com/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://chaogong.netlify.app/en/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
