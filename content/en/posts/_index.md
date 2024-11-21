@@ -1,7 +1,7 @@
 ---
 date: ""
-title: English Posts
+title: English Research
 ---
 
-## Posts
+## Research
 
