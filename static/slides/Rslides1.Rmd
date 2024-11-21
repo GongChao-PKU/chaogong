@@ -1,0 +1,710 @@
+---
+title: 'R软件使用介绍'
+author: '巩超'
+institute: '北京大学公共卫生学院'
+date: '2023-11-09'
+output:
+  xaringan::moon_reader:
+    css: [default, zh-CN.css]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+### 软件下载
+.pull-left[
+R软件下载地址：CRAN
+https://www.r-project.org/
+https://cloud.r-project.org/ (自动寻找最近的服务器)
+
+<img src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/724px-R_logo.svg.png' height=200 />
+] 
+
+
+.pull-right[
+RStudio下载地址：https://posit.co/products/open-source/rstudio/
+
+<img src = 'https://upload.wikimedia.org/wikipedia/commons/d/d0/RStudio_logo_flat.svg' height=200 />
+] 
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+### 软件包安装
+- 软件包安装方法
+```{r eval=FALSE}
+#1.R官网的软件包，可以直接安装
+install.packages("tidyverse")#软件包名称
+#2.从github安装
+install.packages("devtools")
+library(devtools)#软件包加载
+install_github("yihui/xaringan")#软件包库地址
+#3.从Bioconductor网站安装（生信分析常用）
+install.packages('BiocManager')
+library(BiocManager)
+install('edgeR')#软件包名称
+```
+
+--
+- 软件包或函数功能帮助
+  - help
+  - ?软件包名称
+  - ??软件包名称
+  
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+### 数据读取和保存
+.pull-left[
+- 工作路径设置
+```{r eval=FALSE}
+#1.查看当前路径
+getwd()
+#2.设置工作路径
+setwd("Path")
+```
+]
+
+.pull-right[
+<img src = 'https://pic4.zhimg.com/v2-0d0285e7b9433eeedf7e705d6e082d13_r.jpg' height=160 />
+]
+
+- 数据读取
+```{r eval=FALSE}
+#1.txt文件
+read.table(file,header=FALSE,sep=",",encoding="gbk")
+#2.csv文件
+read.csv(file,header=FALSE,sep=",",encoding="gbk")
+#3.xlsx或xls文件
+readxl::read_excel(file,sheet=""，encoding="gbk")
+#4.dta文件
+haven::read_dta(file,encoding="gbk")
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- 数据保存
+```{r eval=FALSE}
+#1.txt文件
+write.table(x, file = ".txt",fileEncoding = "gbk") # 空格分隔
+#2.csv文件
+write.csv(x,file=".csv",fileEncoding = "gbk")
+#3.xlsx文件
+xlsx::write.xlsx(x,file=".xlsx",sheetName="",fileEncoding = "gbk")
+#4.dta文件
+haven::write_dta(x,".dta")
+#5.Rdata文件
+save(x,file=".Rdata")
+load(".Rdata")#加载Rdata文件
+```
+
+--
+1.数据读取和保存的软件包和函数并不唯一，可google了解
+
+2.数据读取的各软件包速度不一，如data.table包的fread函数速度很快
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+### 数据处理
+- 常用软件包
+  - tidyverse
+```{r, eval=TRUE, message=TRUE}
+library(tidyverse)
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- 导入NHANES示例数据
+```{r}
+#install.packages("NHANES")
+library(NHANES)
+```
+
+- 查看数据
+```{r}
+#names(NHANES)#查看变量名
+#head(NHANES,n=3)#查看数据前3行
+#tail(NHANES,n=3)#查看数据后3行
+NHANES #查看数据框的大小，变量名，类型和取值
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- 选择行子集(filter)
+```{r}
+NHANES |> 
+  dplyr::filter(ID==54010,Age==79, Gender=="male") |>
+  knitr::kable()
+```
+
+--
+
+.pull-left[
+- 选择列子集(select)
+```{r}
+NHANES |> 
+  dplyr::select(Age, Gender, Race1) |>
+  knitr::kable()
+```
+
+]
+
+--
+
+.pull-right[
+- 去除缺失值的行(drop_na)
+```{r}
+NHANES |> 
+  tidyr::drop_na() |>
+  knitr::kable()
+```
+
+"|>"为管道符，代表对前面的对象执行后面的操作，"%>%"是更早版本的管道符
+
+]
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- 纳入新变量(mutate)
+```{r}
+NHANES |> 
+  dplyr::slice(1:5) |>
+  dplyr::select(ID,Weight,Height) |>
+  dplyr::mutate(BMI=Weight/Height^2) |>
+  knitr::kable()
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- 根据变量排序(arrange)
+```{r}
+NHANES |> 
+  dplyr::slice(1:5) |>
+  dplyr::select(ID,Weight,Height) |>
+  dplyr::arrange(Weight,Height) |>
+  knitr::kable()
+```
+
+--
+
+1.arrange()是按照升序排列，若想按照降序排列，可以使用arrange(desc())
+
+--
+
+2.arrange()可以执行更为复杂的操作，如arrange(desc(a+b))是将数据按照a与b的和降序排列，arrange((a**2))是按照a的绝对值升序排列
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- 调整变量次序(relocate)
+```{r}
+NHANES |> 
+  dplyr::slice(1:5) |>
+  dplyr::select(ID,Gender,Age,Weight,Height) |>
+  dplyr::relocate(Weight,Height,.after=ID) |>
+  knitr::kable()
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- 数据集合并
+
+--
+
+.pull-left[
+- 纵向合并(bind_rows)
+```{r}
+d1 <- NHANES |>
+  dplyr::slice(3:5) |>
+  select(ID,Gender,Weight,Height) |>
+  filter(Gender=="Male")
+d2 <- NHANES |>
+  dplyr::slice(3:5) |>
+  select(ID,Gender,Weight,Height) |>
+  filter(Gender!="Male")
+d1 |>
+  bind_rows(d2) |>
+  knitr::kable()
+```
+]
+
+--
+.pull-right[
+- 横向合并(inner_join)
+```{r}
+d1 <- NHANES |>
+  dplyr::slice(3:5) |>
+  select(ID,Gender)
+d2 <- NHANES |>
+  dplyr::slice(3:5) |>
+  select(ID,Weight,Height)
+d1 |>
+  inner_join(d2) |>
+  knitr::kable()
+```
+]
+
+--
+
+1.rbind()、cbind()函数分别可以用于纵向合并和横向合并
+
+2.在横向合并中，inner_join()、full_join()、left_join()、right_join()、cross_join()、semi_join()、anti_join()的区别留给大家思考
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- 数据信息汇总(CreateTableOne)
+```{r}
+NHANES1 <- NHANES |>
+  dplyr::slice(1:1000) |>
+  mutate(Gender=factor(Gender),Race1=factor(Race1))
+vars <- c('Gender','Race1','Age','Weight','Height')
+factorVars <-  c('Gender','Race1')
+tableone::CreateTableOne(vars = vars,  data = NHANES1, 
+                         factorVars = factorVars)
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- 交互式表格(datatable)
+```{r eval=require('DT'), tidy=FALSE}
+DT::datatable(
+  head(NHANES, 10),
+  fillContainer = FALSE, options = list(pageLength = 4)
+)
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+### 线性回归
+- 模型构建
+```{r}
+#线性回归模型
+fit = lm(Height ~ 1+Weight+Gender, data = NHANES)
+summary(fit)
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- 回归诊断
+  - LINE条件：线性、独立、正态、等方差
+  - 离群值、高杠杆点、强影响点
+```{r}
+fit = lm(Pulse ~ Weight, data = NHANES)
+par(mfrow=c(2,2)); plot(fit)
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+#### car包推荐
+  - 线性
+```{r}
+fit = lm(Pulse ~ Weight+Height, data = NHANES)
+car::crPlots(fit)
+``` 
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+  - 独立性
+```{r}
+fit = lm(Pulse ~ Weight+Height, data = NHANES)
+car::durbinWatsonTest(fit)
+```
+
+ - 正态性
+```{r fig.height=4, dev='png'}
+fit = lm(Pulse ~ Weight+Height, data = NHANES)
+car::qqPlot(fit,main="Q-Q Plot")
+```
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+  - 等方差性
+```{r fig.height=4, dev='png'}
+fit = lm(Pulse ~ Weight+Height, data = NHANES)
+car::ncvTest(fit)
+car::spreadLevelPlot(fit)
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+  - 多重共线性
+```{r fig.height=4, dev='png'}
+fit = lm(Pulse ~ Weight+Height, data = NHANES)
+car::vif(fit)
+```
+
+  - 离群点
+```{r fig.height=4, dev='png'}
+fit = lm(Pulse ~ Weight+Height, data = NHANES)
+car::outlierTest(fit)
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+  - 高杠杆点
+```{r fig.height=4, dev='png'}
+fit = lm(Pulse ~ Weight+Height, data = NHANES)
+hat.plot <- function(fit){
+  p <- length(coefficients(fit))
+  n <- length(fitted(fit))
+  plot(hatvalues(fit),main="Index Plot of Hat Values")
+  abline(h=c(2,3)*p/n,col="red",lty=2)
+  identify(1:n,hatvalues(fit),names(hatvalues(fit)))
+}
+hat.plot(fit)
+```  
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+  - 强影响点
+```{r fig.height=4, dev='png'}
+fit = lm(Pulse ~ Weight+Height, data = NHANES)
+cutoff <- 4/(nrow(NHANES)-length(fit$coefficients)-2)
+plot(fit,which=4,cook.levels=cutoff)
+abline(h=cutoff,col="red",lty=2)
+```   
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+  - 逐步回归
+```{r fig.height=4, dev='png'}
+fit = lm(Pulse ~ Height+Gender+Age, data =
+           na.omit(NHANES[,c('Pulse','Weight','Height','Gender','Age')]))
+MASS::stepAIC(fit,direction = "backward")
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+### Logistic回归
+- 模型构建
+```{R}
+#Logistic回归模型
+lfit.1 = glm(Diabetes ~ Age+SmokeNow+BMI_WHO, family=binomial, data=NHANES)
+summary(lfit.1)
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- 模型解释
+```{R}
+#Logistic回归模型
+lfit.1 = glm(Diabetes ~ Age+SmokeNow+BMI_WHO, family=binomial, data=NHANES)
+exp(coef(lfit.1))#回归系数指数化
+exp(confint(lfit.1))#回归系数置信区间
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+### R制图
+.pull-left[
+- 条形图
+```{r fig.height=3.5, dev='png'}
+barplot(table(NHANES$Gender),
+        width=0.25, xlim=c(0, 1),
+        main="gender", 
+        col=c("brown","green"))
+```
+]
+
+--
+.pull-right[
+- 直方图
+```{r fig.height=3.5, dev='png'}
+hist(NHANES$Height,
+     main="Height")
+```
+]
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+.pull-left[
+- 箱线图
+```{r fig.height=3.5, dev='png'}
+boxplot(NHANES$Height~
+          NHANES$Gender,
+        main="Height")
+```
+
+- 小提琴图
+```{r fig.height=3.5, dev='png'}
+vioplot::vioplot(NHANES$Height)
+```
+]
+
+--
+.pull-right[
+- 散点图
+```{r fig.height=3.5, dev='png'}
+plot(NHANES$Height,
+     NHANES$Weight,
+     main="Height~Weight")
+```
+
+- 饼图
+```{r fig.height=4.5, dev='png'}
+pie(table(NHANES$Race1))
+```
+]
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+### ggplot2 
+```{r fig.height=3.5, dev='png',message=FALSE,warning=FALSE}
+ggplot2::ggplot(data=NHANES,aes(x=Height,y=Weight))+
+  geom_point(pch=17,color="brown",size=2)+
+  geom_smooth(method="lm",color="green",linetype=2)+
+  labs(x="Weight",y="Height")+
+  ggtitle("Height~Weight")+
+  theme(plot.title=element_text(hjust=0.5))
+
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+### 交互式地图
+```{r out.width='100%', fig.height=6, eval=require('leaflet')}
+library(leaflet)
+leaflet() %>% addTiles() %>% setView(116.353,39.983, zoom = 17)
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+### 流行病学数据分析包
+#### epicalc(CRAN中被epiDisplay取代)
+.pull-left[
+- 变量分布
+```{r}
+epiDisplay::dotplot(NHANES$Age)
+```
+
+]
+
+--
+
+.pull-right[
+- 变量累计分布
+```{r}
+epiDisplay::summ(NHANES$Age)
+```
+
+]
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- 变量交叉分布
+```{r results='hide'}
+epiDisplay::tabpct(NHANES$Education,NHANES$HHIncomeMid)
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- RR值
+```{r}
+epiDisplay::cs(NHANES$Diabetes,NHANES$Gender)
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- 剂量反应关系
+```{r fig.height=3, dev='png'}
+NHANES2 <- NHANES[NHANES$BMI_WHO!="12.0_18.5",] |>
+  droplevels(NHANES$BMI_WHO)
+epiDisplay::cs(NHANES2$Diabetes,NHANES2$BMI_WHO)
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- OR值
+```{r fig.height=3, dev='png'}
+epiDisplay::cc(NHANES2$Diabetes,NHANES2$BMI_WHO)
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- 分层OR值(混杂、交互)
+```{r fig.height=3, dev='png'}
+NHANES3 <- NHANES2 |>
+  select(Diabetes,BMI_WHO,Gender) |>
+  na.omit()
+epiDisplay::mhor(NHANES3$Diabetes,NHANES3$Gender,NHANES3$BMI_WHO)
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- logistic回归
+```{r}
+#Logistic回归模型
+lfit.1 = glm(Diabetes ~ Age+SmokeNow+BMI_WHO, family=binomial, data=NHANES)
+epiDisplay::logistic.display(lfit.1,crude=FALSE)
+```
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+- logisitc逐步回归
+```{r}
+#Logistic回归模型
+NHANES4 <- NHANES |>
+  select(Diabetes,Age,SmokeNow,BMI_WHO) |>
+  na.omit()
+lfit.1 = glm(Diabetes ~ Age+SmokeNow+BMI_WHO, family=binomial, data=NHANES4)
+lfit.2 = step(lfit.1,direction="backward")
+```
+
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+### R软件的特点
+- 免费、开放源代码，支持各主要计算机系统；
+
+- 具有丰富的数据类型，包括向量、矩阵、因子和数据集等；
+
+- 强调交互式数据分析，支持复杂算法描述，图形功能强;
+
+- 实现了假设检验、回归、判别、聚类等多种统计学方法；
+
+- 扩展包众多，功能完善(截止2023年11月在R扩展包主要分发网站CRAN上有近2万个)。
+
+---
+background-image: url(https://vim.pku.edu.cn/images/content/2017-10/20171027165035344238_1.jpg)
+background-size: 200px
+background-position: 115% 3%
+
+### 参考资料推荐
+- R语言实战
+  - 包含了R入门的数据管理、统计分析、图形绘制等内容，其中统计分析包括描述性统计分析、假设检验、回归、方差分析、主成分和因子分析、时间序列等，非常全面
+- R for data science（中、英文版）
+  - 对于R如何处理数据，将raw data整合为tidy data并输出结果讲解的很好
+  - https://yun.weicheng.men/Book/R%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6.pdf
+  - https://r4ds.hadley.nz/
+- R语言教程（北京大学李东风《统计软件》等课程讲义）
+  - 这是我在做slides的时候发现的，内容和其他书籍类似，可作为额外参考
+  - https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/index.html
+- 谢益辉主页
+  - https://yihui.org/
+- 统计之都
+  - https://cosx.org/
+- stack overflow
+  - https://stackoverflow.com/
+- Google
+  - https://www.google.com/
+
+  
+---
+class: inverse, middle, center
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/39/Naruto_Shiki_Fujin.svg)
+background-size: contain
+### 祝愿大家在使用R的过程中
+### 实现更多功能
+### 发现更多乐趣
+### 谢谢！
+
+### 本幻灯片由谢益辉开发的R包 [**xaringan**](https://github.com/yihui/xaringan) 生成
