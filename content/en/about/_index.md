@@ -11,13 +11,13 @@ Peking university\
 Haidian District, Beijing 100191 China
 
 Email: gc2016@pku.edu.cn\
-URL: [https://chaogong.netlify.app](https://chaogong.netlify.app/)
+URL: [https://chaogong.net](https://chaogong.net/)
 
 Born: Shandong, China\
 Nationality: Chinese
 
 ### Current position
-Ph.D Student, School of Public Health, Peking University
+PhD Student, School of Public Health, Peking University
 
 ### Areas of specialisation
 Epidemiology & Biostatistics; Health emergency

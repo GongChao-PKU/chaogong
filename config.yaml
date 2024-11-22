@@ -45,7 +45,7 @@ params:
   MathJaxVersion: 2.7.5
   blogDirName: posts
   copyright: '&copy;'
-  copyrightYear: 2024-2024
+  copyrightYear: 2023-{Year}
   defaultLang: en
   description: Peronal website of Chao Gong
   favicon: https://simpleicons.org/icons/matrix.svg
@@ -70,11 +70,14 @@ params:
       cn: 本站驱动
       en: Made with
     sourceCode:
-      cn: 内容存于
-      en: Content in
+      cn: 积盒
+      en: Github
     subscribe:
       cn: 订阅
       en: Subscribe
+    weibo:
+      cn: 微博
+      en: Weibo  
   logo:
     alt: GongChao
     height: 50
