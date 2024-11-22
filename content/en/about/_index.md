@@ -20,7 +20,7 @@ Nationality: Chinese
 PhD Student, School of Public Health, Peking University
 
 ### Areas of specialisation
-Epidemiology & Biostatistics; Health emergency
+Epidemiology & Biostatistics; Health Emergency Management
 
 ### Education
 2021-2023, Master in Epidemiology & Biostatistics, Peking University\

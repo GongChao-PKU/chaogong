@@ -39,7 +39,7 @@ menu:
       url: /cn/posts/
       weight: 4
 params:
-  GithubRepo: https://github.com/GongChao-PKU/chaogong/
+  GithubRepo: https://github.com/GongChao-PKU/
   GithubEdit: https://github.com/GongChao-PKU/chaogong/tree/main/content/
   MathJaxCDN: //cdnjs.cloudflare.com/ajax/libs
   MathJaxVersion: 2.7.5
