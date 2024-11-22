@@ -6,9 +6,9 @@ type: list-single
 
 
 ## Chao Gong
-School of Public Health\
-Peking university\
-Haidian District, Beijing 100191 China
+School of Public Health, Peking university HSC\
+38 Xueyuan Rd, Haidian District\
+Beijing, China
 
 Email: gc2016@pku.edu.cn\
 URL: [https://chaogong.net](https://chaogong.net/)
