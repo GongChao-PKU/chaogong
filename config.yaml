@@ -22,6 +22,9 @@ menu:
     - name: 日志
       url: /cn/posts/
       weight: 2
+    - name: 书籍
+      url: /book/
+      weight: 3
     - name: English
       url: /
       weight: 4
