@@ -16,12 +16,6 @@
           <i class="fa fa-github" style="font-size: 24px"></i>
         </a>
        </li>
-       <li>
-        <a href="https://weibo.com/u/6064793040" class="footer-links-kudos" target="_blank">
-          {{ default (index $.Site.Params.Lang.weibo $.Site.Params.defaultLang) (index $.Site.Params.lang.weibo $.Section) }} 
-          <img src="/media/weibo.png" width="22" height="22">
-        </a>
-       </li>
        {{ end }}
        {{ end }}
        {{ if not .IsHome }}
