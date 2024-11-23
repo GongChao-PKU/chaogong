@@ -9,11 +9,21 @@
     <lastBuildDate>Thu, 21 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://chaogong.netlify.app/cn/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>学术主页更新</title>
-      <link>https://chaogong.netlify.app/cn/2024/11/21/website/</link>
+      <title>在残差图中隐藏信息</title>
+      <link>https://chaogong.netlify.app/cn/2024/11/21/hide-message-in-residentials/</link>
       <pubDate>Thu, 21 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>https://chaogong.netlify.app/cn/2024/11/21/website/</guid>
-      <description>今天踩了很多坑，终于将学术主页搭建好了，感谢blogdown开发及应用的各位前辈</description>
+      <guid>https://chaogong.netlify.app/cn/2024/11/21/hide-message-in-residentials/</guid>
+      <description>最近在统计之都发现了一个非常有趣的包surreal ,可以将信息转化为二维格点形式的图片，并进而加密藏进数据集，通过线性回归的残差图恢复出来。感觉很有意思，在此记录。
+library(surreal) # 将信息转化为二维格点形式的图片并隐藏进数据集中 message_data &amp;lt;- surreal_text(&amp;#34;I know\nyour secret!&amp;#34;) # 通过线性回归恢复隐藏信息 model &amp;lt;- lm(y ~ ., data = message_data) plot(model$fitted, model$resid, pch = 16, main = &amp;#34;Custom Message in Residuals&amp;#34;) </description>
+    </item>
+    <item>
+      <title>R软件使用介绍</title>
+      <link>https://chaogong.netlify.app/cn/2023/11/23/r%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Thu, 23 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://chaogong.netlify.app/cn/2023/11/23/r%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/</guid>
+      <description>于中疾控第八期硕博论坛 (2023 年 11 月 23 日) 发表演讲的幻灯片。
+幻灯片格式：
+HTML </description>
     </item>
   </channel>
 </rss>

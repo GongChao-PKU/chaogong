@@ -23,7 +23,7 @@ menu:
       url: /cn/posts/
       weight: 2
     - name: 书籍
-      url: /book/
+      url: /cn/book/
       weight: 3
     - name: English
       url: /
