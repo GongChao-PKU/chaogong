@@ -1,8 +1,9 @@
 ---
 title: 巩超简历
 date: '2024-11-21'
-type: list-single
+type: nolisting
 ---
+# 简历
 
 姓名：巩超\
 职业：学生\

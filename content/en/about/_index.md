@@ -1,8 +1,9 @@
 ---
 title: Curriculum Vitae
 date: '2024-11-21'
-type: list-single
+type: nolisting
 ---
+# Curriculum Vitae
 
 ## Chao Gong
 School of Public Health, Peking university HSC\
